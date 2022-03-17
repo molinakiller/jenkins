@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Coverage') {
             steps {
-                dir('python-aplicacion-ejemplo') {
+                dir('python-application-example') {
                     sh 'python -m coverage report -m --fail-under=90'
                 }
             }

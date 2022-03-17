@@ -17,5 +17,12 @@ pipeline {
                 }
             }
         }
+        stage('Coverage') {
+            steps {
+                dir('python-aplicacion-ejemplo') {
+                    sh 'python -m coverage report -m --fail-under=90'
+                }
+            }
+        }
     }
 }

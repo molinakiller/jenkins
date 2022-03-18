@@ -24,5 +24,19 @@ pipeline {
                 }
             }
         }
+        stage('Package'){
+            steps{
+                dir('python-application-example') {
+                    sh 'python -m build'
+                }
+            }
+        }
+        stage('Publish'){
+            steps{
+                dir('python-application-example') {
+                    sh 'cd python-application-example && python3 -m twine upload dist/* --config-file ~/.pypirc --skip-existing '
+                }
+            }
+        }
     }
 }

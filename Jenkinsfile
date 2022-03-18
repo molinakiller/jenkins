@@ -37,7 +37,7 @@ pipeline {
         stage('Publish'){
             steps{
                 dir('python-application-example') {
-                    sh 'cd python-application-example && python3 -m twine upload dist/* -u $PYPI_CREDENTIALS_USR -p $PYPI_CREDENTIALS_PSW --skip-existing'
+                    sh 'python -m twine upload dist/* -u $PYPI_CREDENTIALS_USR -p $PYPI_CREDENTIALS_PSW --skip-existing'
                 }
             }
         }
